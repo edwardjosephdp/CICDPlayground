@@ -1,6 +1,12 @@
-version: 2
+version: 2.1
+
+main-branch: &main-branch
+  filters:
+    branches:
+      only: main
+
 jobs:
-  build:
+  build_android:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-30
@@ -28,3 +34,9 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+
+workflows:
+  build:
+    jobs:
+      - build_android:
+          <<: *main-branch
