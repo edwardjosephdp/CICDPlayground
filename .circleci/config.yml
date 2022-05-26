@@ -38,5 +38,4 @@ jobs:
 workflows:
   build:
     jobs:
-      - build_android:
-          <<: *main-branch
+      - build_android
