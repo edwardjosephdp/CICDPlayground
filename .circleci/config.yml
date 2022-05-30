@@ -31,9 +31,9 @@ jobs:
           command: ./gradlew ktLintCheck
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew testDebugUnitTestCoverage
       - store_artifacts:
-          path: app/build/reports
+          path: app/build/reports/jacoco
           destination: reports
       - store_test_results:
           path: app/build/test-results
